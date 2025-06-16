@@ -6,7 +6,7 @@ provider "aws" {
 # 2. Create Security Group
 # -------------------------------
 resource "aws_security_group" "instance_sg" {
-  name        = "web-sg"
+  name        = "web-sg-new"
   description = "Allow HTTP and SSH"
   vpc_id      = var.vpc_id
 
@@ -36,7 +36,7 @@ resource "aws_security_group" "instance_sg" {
 # ALB Target Groups
 # -------------------------------
 resource "aws_lb_target_group" "blue" {
-  name        = "blue-tg"
+  name        = "blue-tg-new"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "blue" {
 }
 
 resource "aws_lb_target_group" "green" {
-  name        = "green-tg"
+  name        = "green-tg-new"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
