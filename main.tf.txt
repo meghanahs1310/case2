@@ -85,7 +85,7 @@ resource "aws_lb_listener" "https" {
 # EC2 Instances - Blue
 # -------------------------------
 resource "aws_instance" "blue" {
-  count                     = 2
+  count                     = 1
   ami                       = var.ami_id
   instance_type             = var.instance_type
   subnet_id                 = element(var.public_subnets, count.index)
@@ -93,7 +93,7 @@ resource "aws_instance" "blue" {
   vpc_security_group_ids    = [aws_security_group.instance_sg.id]
 
   tags = {
-    Name = "blue-ec2-${count.index + 1}"
+    Name = "blue-ec2-${count.index}"
   }
 
   user_data = <<-EOF
@@ -110,7 +110,7 @@ resource "aws_instance" "blue" {
 }
 
 resource "aws_lb_target_group_attachment" "blue_attach" {
-  count              = 2
+  count              = 1
   target_group_arn   = aws_lb_target_group.blue.arn
   target_id          = aws_instance.blue[count.index].id
   port               = 80
@@ -120,7 +120,7 @@ resource "aws_lb_target_group_attachment" "blue_attach" {
 # EC2 Instances - Green
 # -------------------------------
 resource "aws_instance" "green" {
-  count                     = 2
+  count                     = 1
   ami                       = var.ami_id
   instance_type             = var.instance_type
   subnet_id                 = element(var.public_subnets, count.index)
@@ -128,7 +128,7 @@ resource "aws_instance" "green" {
   vpc_security_group_ids    = [aws_security_group.instance_sg.id]
 
   tags = {
-    Name = "green-ec2-${count.index + 1}"
+    Name = "green-ec2-${count.index}"
   }
 
   user_data = <<-EOF
@@ -145,7 +145,7 @@ resource "aws_instance" "green" {
 }
 
 resource "aws_lb_target_group_attachment" "green_attach" {
-  count              = 2
+  count              = 1
   target_group_arn   = aws_lb_target_group.green.arn
   target_id          = aws_instance.green[count.index].id
   port               = 80
