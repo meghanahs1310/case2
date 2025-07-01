@@ -1,10 +1,5 @@
 region           = "ap-south-1"
-data "aws_vpc" "existing" {
-  filter {
-    name   = "tag:Name"
-    values = ["my-existing-vpc"]
-  }
-}
+vpc_id           = "vpc-0123456789abcdef0"
 public_subnets   = ["subnet-0962d1af555281ec1", "subnet-039c31add5c2ae5a7"]
 ami_id           = "ami-0f918f7e67a3323f0"
 instance_type    = "t2.medium"
