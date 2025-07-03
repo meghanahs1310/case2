@@ -1,8 +1,8 @@
-region           = "ap-south-1"
-vpc_id           = "vpc-0123456789abcdef0"
-public_subnets   = ["subnet-0962d1af555281ec1", "subnet-039c31add5c2ae5a7"]
-ami_id           = "ami-0f918f7e67a3323f0"
-instance_type    = "t2.medium"
-key_name         = "case2"
+region           = "us-east-2"
+vpc_id           = "vpc-0b4594c068d60fc97"
+public_subnets   = ["subnet-0e4161d6c8ba28b4e", "subnet-074fb1c73d7bfe58d"]
+ami_id           = "ami-0d1b5a8c13042c939"
+instance_type    = "t2.micro"
+key_name         = "case2new"
 domain_name      = "meghanahs.xyz"
-certificate_arn  = "arn:aws:acm:ap-south-1:394376287446:certificate/d38438ec-ce8f-4d3d-9474-92cfba6ccd18"
+certificate_arn  = "arn:aws:acm:us-east-2:394376287446:certificate/fef478ee-56a9-46df-a617-55c29d8fc84d"
